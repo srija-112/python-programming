@@ -1,0 +1,685 @@
+//sum of two numbers python
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+
+sum = a + b
+
+print("Sum =", sum)
+
+
+//Celsius to Fahrenheit
+c = float(input("Enter temperature in Celsius: "))
+
+f = (c * 9/5) + 32
+
+print("Temperature in Fahrenheit =", f)
+
+
+//Fahrenheit to Celsius
+f = float(input("Enter temperature in Fahrenheit: "))
+
+c = (f - 32) * 5/9
+
+print("Temperature in Celsius =", c)
+
+
+//odd even number
+n = int(input("Enter a number: "))
+
+if n % 2 == 0:
+    print("Even number")
+else:
+    print("Odd number")
+
+
+//number sum of digits
+n = int(input("Enter a number: "))
+
+sum = 0
+
+while n > 0:
+    digit = n % 10
+    sum = sum + digit
+    n = n // 10
+
+print("Sum of digits =", sum)
+
+
+//leap year
+year = int(input("Enter a year: "))
+
+if year % 400 == 0 or (year % 4 == 0 and year % 100 != 0):
+    print("Leap year")
+else:
+    print("Not a leap year")
+
+
+//maximum Among three numbers
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+c = int(input("Enter third number: "))
+
+if a >= b and a >= c:
+    maximum = a
+elif b >= a and b >= c:
+    maximum = b
+else:
+    maximum = c
+
+print("Maximum number =", maximum)
+
+
+//palindrome number
+n = int(input("Enter a number: "))
+
+original = n
+reverse = 0
+
+while n > 0:
+    digit = n % 10
+    reverse = reverse * 10 + digit
+    n = n // 10
+
+if original == reverse:
+    print("Palindrome number")
+else:
+    print("Not a palindrome number")
+
+
+//Armstrong Number
+n = int(input("Enter a number: "))
+
+original = n
+sum = 0
+digits = len(str(n))
+
+while n > 0:
+    digit = n % 10
+    sum = sum + digit ** digits
+    n = n // 10
+
+if original == sum:
+    print("Armstrong number")
+else:
+    print("Not an Armstrong number")
+
+
+//Fibonacci Series
+n = int(input("Enter number of terms: "))
+
+a = 0
+b = 1
+
+for i in range(n):
+    print(a, end=" ")
+    a, b = b, a + b
+
+
+//calculator
+a = float(input("Enter first number: "))
+b = float(input("Enter second number: "))
+
+operator = input("Enter operator (+, -, *, /): ")
+
+if operator == "+":
+    print("Result =", a + b)
+elif operator == "-":
+    print("Result =", a - b)
+elif operator == "*":
+    print("Result =", a * b)
+elif operator == "/":
+    print("Result =", a / b)
+else:
+    print("Invalid operator")
+
+
+//Bubble Sort
+n = int(input("Enter number of elements: "))
+
+arr = []
+
+for i in range(n):
+    arr.append(int(input("Enter element: ")))
+
+for i in range(n):
+    for j in range(0, n - i - 1):
+        if arr[j] > arr[j + 1]:
+            arr[j], arr[j + 1] = arr[j + 1], arr[j]
+
+print("Sorted array:", arr)
+
+
+//prime number
+n = int(input("Enter a number: "))
+
+if n < 2:
+    print("Not a prime number")
+else:
+    for i in range(2, n):
+        if n % i == 0:
+            print("Not a prime number")
+            break
+    else:
+        print("Prime number")
+
+
+//factorial of a number
+n = int(input("Enter a number: "))
+
+fact = 1
+
+for i in range(1, n + 1):
+    fact = fact * i
+
+print("Factorial =", fact)
+
+
+//student grade calculator
+marks = float(input("Enter marks: "))
+
+if marks >= 90:
+    grade = "A"
+elif marks >= 80:
+    grade = "B"
+elif marks >= 70:
+    grade = "C"
+elif marks >= 60:
+    grade = "D"
+elif marks >= 50:
+    grade = "E"
+else:
+    grade = "F"
+
+print("Grade =", grade)
+
+
+//String Palindrome
+s = input("Enter a string: ")
+
+if s == s[::-1]:
+    print("Palindrome string")
+else:
+    print("Not a palindrome string")
+
+
+//Count Vowels and Consonants
+word = input("Enter a word: ")
+
+vowels = 0
+consonants = 0
+
+for ch in word.lower():
+    if ch in "aeiou":
+        vowels += 1
+    elif ch.isalpha():
+        consonants += 1
+
+print("Number of vowels =", vowels)
+print("Number of consonants =", consonants)
+
+
+//Extract Username from Email ID
+email = input("Enter email ID: ")
+
+username = email.split("@")[0]
+
+print("Username =", username)
+
+
+//Remove Duplicate Characters from a String
+s = input("Enter a string: ")
+
+result = ""
+
+for ch in s:
+    if ch not in result:
+        result += ch
+
+print("String after removing duplicates:", result)
+
+
+//Reverse Words in a Sentence
+sentence = input("Enter a sentence: ")
+
+words = sentence.split()
+reverse = words[::-1]
+
+print("Reversed sentence:", " ".join(reverse))
+
+
+//Check Whether Two Strings Have the Same Length
+str1 = input("Enter first string: ")
+str2 = input("Enter second string: ")
+
+if len(str1) == len(str2):
+    print("Both strings have the same length")
+else:
+    print("Strings have different lengths")
+
+
+//Case Study-1:
+
+A strong needs to manage an users in a playlists. The system allow users to play the songs sequential order, add songs at the end of the list. inserta a playnext option toplay the immediate next song
+
+playlist=[]
+
+n = int (input("Enter no of songs )
+
+for i in range(n):
+
+playlist. append(input ("Enter song"))
+
+print ("playlist", play list)
+
+い Song = input("Enter song to add ")
+
+playlist append(song)
+
+Current = input("Enter current song")
+
+if current in playlist:
+
+next_s t-song = input("Enter next song")
+
+list. insert (playlist.index (current) +1, nat-song) playlist.
+
+point ("Final playlist"; playlist)
+
+
+//D use study -2: A school wants to
+
+find the highest process student marks to Lowest marks-score, lowest marks in ascending/descending order.
+
+marks = list (map fint, input("Enter marks.).split())
+
+print("Highest; max (onarks))
+
+print("lowest", min (marks))
+
+print("Ascending", sorted (marks))
+
+print ("Aescending", sorted (marks, reverse=True))
+
+
+//Case study-3: To-Ro task tracker:
+
+A predictivity tools weds to manage daily to where users can add new todos and crossoff compl tasks from top or bottom of the list.
+
+tasks = []
+
+n = int Cinput ("Enter number of tasks"))
+
+foriin range (n): tasks.append(input("Enter task"))
+
+print("Tasks, tasks)
+
+task = input("Enter new task "))
+
+tasks append (task)
+
+Choice = input (complete from top or bottom?")
+
+if choice == "top":
+
+task.pop(o)
+
+elit choice=="bottom":
+
+task.pop()
+
+print("Remaining Tasks, tasks)
+
+
+//case study-1 A college want
+
+a simple student registro ystem recieves their name and ema The system should: address as stri
+
+1. Accept the students name, 2. Convert the names int in name. 4. uppercase s. count the number of character in 3. mail address Contains"@" 5. Auplay wh whether the email the email address is valid or invalid.
+
+→ name = input("Enter student name ")
+
+email = input("Enter email address") print (um student Name, name)
+
+print("Upper case Name", name upper()) print (Number of Character: len (name))
+
+if @in encail:
+
+print (Email Address, email)
+
+else print (Email is valid")"
+
+else print print (Email Address", email)
+
+print("Email is Invalid")
+
+Output
+
+Enter student: Srijeeta
+
+Enter email address: srijeeta@gmail.com
+
+Student Name: srijeeta
+
+Uppercase Name: SRIJEETA
+
+Number Address: snijeeta@gmail.com.
+
+Email is valid.
+
+
+//case study 2
+
+An electricity board bill based on unit consumed. calculates the monthly electricity
+
+a. The system should calculate the bill wing if-else-Statement.
+
+b. If bill is more than 2000, add a 10%. 0% surcharge
+
+unit consumed
+
+Rate
+
+0 100 unét
+
+Rs 5/units
+
+200 unit
+
+RS 7/ units
+
+2.0 J 300 unit
+
+RS 8/ units
+
+Above 300 units Rs 15/unik units = int (input("Enter units consumed"))
+
+if units <= 100: bill = units +5
+
+elife units <= 200:
+
+bill = units #7 elife units <= 300: bill units #8
+
+else:
+
+bill = units + 15
+
+if bill>2000:
+
+surcharge = bill 0.10
+
+billbill surcharge
+
+print (Electricity Bill = RS., bill)
+
+Output
+
+Enter units consumed 801
+
+Electricity Bill = RS-4966.5
+
+
+//List Initialization and Append
+# List initialization
+numbers = [10, 20, 30]
+
+print("Original list:", numbers)
+
+# Append elements
+numbers.append(40)
+numbers.append(50)
+
+print("After append:", numbers)
+
+
+//Minimum, Maximum and Average of a List
+numbers = [10, 20, 30, 40, 50]
+
+minimum = min(numbers)
+maximum = max(numbers)
+average = sum(numbers) / len(numbers)
+
+print("Minimum =", minimum)
+print("Maximum =", maximum)
+print("Average =", average)
+
+
+//Searching and Counting an Element in a List
+numbers = [10, 20, 30, 20, 40, 20, 50]
+
+x = int(input("Enter number to search: "))
+
+count = numbers.count(x)
+
+if count > 0:
+    print("Element found")
+    print("Count =", count)
+else:
+    print("Element not found")
+
+
+//Remove Duplicate Elements from a List
+numbers = [10, 20, 20, 30, 40, 40, 50]
+
+unique = []
+
+for num in numbers:
+    if num not in unique:
+        unique.append(num)
+
+print("Original list:", numbers)
+print("List after removing duplicates:", unique)
+
+
+//Dynamic Student Roster Management
+students = []
+
+while True:
+    print("\n--- Student Roster ---")
+    print("1. Add Student")
+    print("2. Remove Student")
+    print("3. Display Students")
+    print("4. Search Student")
+    print("5. Exit")
+
+    choice = int(input("Enter your choice: "))
+
+    if choice == 1:
+        name = input("Enter student name: ")
+        students.append(name)
+        print("Student added successfully.")
+
+    elif choice == 2:
+        name = input("Enter student name to remove: ")
+
+        if name in students:
+            students.remove(name)
+            print("Student removed successfully.")
+        else:
+            print("Student not found.")
+
+    elif choice == 3:
+        print("Student Roster:")
+
+        if len(students) == 0:
+            print("No students available.")
+        else:
+            for student in students:
+                print(student)
+
+    elif choice == 4:
+        name = input("Enter student name to search: ")
+
+        if name in students:
+            print("Student found.")
+        else:
+            print("Student not found.")
+
+    elif choice == 5:
+        print("Exiting...")
+        break
+
+    else:
+        print("Invalid choice.")
+
+
+//Suppose team score analyzer
+
+Sufind the highest scoring player 1. Calculate Va
+
+average run
+
+name & scoring 1. Auplay the player n nens in a towrnament more than 500
+
+d. Sort player according to runs.
+
+e. Aisplay top 3 players
+
+players = { "Virat": 850, "Rohit": 720, "Rahul: 480, Hardik": 5204 subhram: 650,
+
+print("Highest: max (players, key= ayers. get))
+
+(Average, sum (players, value())/print len (players))
+
+for Pir in plagers.items ():
+
+if rs 500:
+
+print (Pr)
+
+S = Sorted (players.items(), key = Lambda. x:x [1], reverse=True)
+
+print ("sorted ",s)
+
+print("Top 3",'s [:3])
+
+
+//Implement the movie g analyzer system
+
+a. display all the movies which have rating 28 b. Find the highest rated me morie
+
+c. calculate average rating.
+
+ay all the movie names d. Aisplay belonging from a po
+
+genre.
+
+e. Sort movies according to roding
+
+mories = { "Inception ": 8.8'
+
+"Titanic": 7.9,
+
+"Arengers": 8.0.
+
+"Interstellar": 8.6
+
+for mir in mories.items():
+
+if r>7:
+
+print (mir) print("Highest", max (mories,key = mories.ge
+
+print("Average", sum (mories, values()) /6 print (Sorted (movies.items(). C
+
+items(), key = Lambda X: X[1], reverse = True))
+
+
+//2.
+
+Travel Itinearry Planner:
+
+a. Complete itineary Aisplay activities in a particular day. activitidssion a b.
+
+c. Add a new destination. d. Remove a destination
+
+e. Sort the itenavey by day. f. Search a particular destination
+
+: "Kolkata", 2: "Aigha", trip = { 1: "Kolkata", 2:" La", 3: "Mandarmani"
+
+print("Itinerary", trip) Ez print("Day 2", trip [2])
+
+trip [4]="Darjeeling" del trip [3] -(a sorted, dict (sorted (trip.items()))) print(
+
+if "Aigha" in trip. Values ():
+
+print("Digha found")
+
+
+//Removing duplicate patient ID Convert the lists into set a. Con
+
+-
+
+b. Find the number of unique patients.
+
+The. Add a new patient ID...
+
+d. Remove a patient JD.
+
+#patient IDS
+
+patient_ids=[101, 102, 103, 101, 104,102,105]
+
+unique que_ids=set (patient_ids)
+
+print("Unique patient IDs IDs", unique-ids)
+
+print ("Number of Unique patients", len (unique ids)) unique ids. add (106)
+
+print (After adding new patient ID", unique. ids)
+
+unique-ids.remove(103)
+
+print("After removing patient ID 103: ", unique_ide)
+
+
+//students enrollment in diff  Courses
+A. Students who enrolled in two cases
+
+B. Students enroll only on Python
+
+C. Students enroll in python.
+
+d d. Studert enroll at least one Course
+
+python-s 1- Students = 2" Rahul"; "Ananya", "Riya", "Amit"}
+
+"Ananya": "Riya", "Sourav", "Priya"? ai students = { "An
+
+on- students & ains both = python-studere -students
+
+only-python = python - student-of-students
+
+only_ai = ai-students-python- students
+
+'astudents in both course, both) print (students
+
+print("Ony python, only- python) print (only AI" only_ai)
+
+, print ("At least one course: ", at least_one)
+
+
+//common product purchased-by customer
+
+a. product purchased by both customer, b. product purchased by by customer Ac product purchased by aut d. All products dustomer. purchased by either dustor
+
+Customer. A = {"Laptop" "Mouse", "Keyboard... Head Customer. B = "Mouse", "keyboard" "Monitor", "US
+
+Common customer. A s customer B
+
+products. A customer. A products-B = customer. B
+
+all-products-customer-A/Customer-B
+
+products.
+
+print("common products", common) print (o products (chased by customerA
+
+customer B:
+
+print (products purchfroduct-A).
+
+products to by produ B)
+
+print ("All products purchased by either custo
+
+all-products)
