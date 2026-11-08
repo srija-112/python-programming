@@ -683,3 +683,315 @@ products to by produ B)
 print ("All products purchased by either custo
 
 all-products)
+
+
+//Read the CSV File
+import pandas as pd
+
+df = pd.read_csv("train.csv")
+
+print(df)
+
+
+//Display First 10 Records, Number of Rows, Number of Columns and Column Names
+import pandas as pd
+
+df = pd.read_csv("train.csv")
+
+# Display first 10 records
+print("First 10 Records:")
+print(df.head(10))
+
+# Display number of rows
+print("Number of Rows:", df.shape[0])
+
+# Display number of columns
+print("Number of Columns:", df.shape[1])
+
+# Display column names
+print("Column Names:")
+print(df.columns.tolist())
+
+
+//Calculate Mean, Median, Mode and Standard Deviation Ignoring Missing Values
+import pandas as pd
+
+df = pd.read_csv("train.csv")
+
+# Select numerical columns
+numeric_df = df.select_dtypes(include="number")
+
+# Calculate Mean
+print("Mean:")
+print(numeric_df.mean(skipna=True))
+
+# Calculate Median
+print("\nMedian:")
+print(numeric_df.median(skipna=True))
+
+# Calculate Mode
+print("\nMode:")
+print(numeric_df.mode().iloc[0])
+
+# Calculate Standard Deviation
+print("\nStandard Deviation:")
+print(numeric_df.std(skipna=True))
+
+
+//Calculate Total Passengers and Survivors in Each Class
+import pandas as pd
+
+df = pd.read_csv("train.csv")
+
+# Calculate total passengers in each class
+print("Total Passengers in Each Class:")
+print(df.groupby("Pclass").size())
+
+# Calculate survivors in each class
+print("\nTotal Survivors in Each Class:")
+print(df.groupby("Pclass")["Survived"].sum())
+
+
+//Create a Contingency Table using pandas.crosstab()
+import pandas as pd
+
+df = pd.read_csv("train.csv")
+
+# Create contingency table
+table = pd.crosstab(df["Pclass"], df["Survived"])
+
+print("Contingency Table:")
+print(table)
+
+
+//Calculate Mean, Median, Mode, Standard Deviation and Interquartile Range of Ticket Fare
+import pandas as pd
+
+df = pd.read_csv("train.csv")
+
+fare = df["Fare"].dropna()
+
+print("Mean:", fare.mean())
+print("Median:", fare.median())
+print("Mode:", fare.mode()[0])
+print("Standard Deviation:", fare.std())
+print("Interquartile Range:", fare.quantile(0.75) - fare.quantile(0.25))
+
+
+//Calculate Average Fare of Each Passenger Class
+import pandas as pd
+
+df = pd.read_csv("train.csv")
+
+# Calculate average fare of each passenger class
+average_fare = df.groupby("Pclass")["Fare"].mean()
+
+print("Average Fare of Each Passenger Class:")
+print(average_fare)
+
+
+//Determine the Class with Highest Average Ticket Fare
+import pandas as pd
+
+df = pd.read_csv("train.csv")
+
+# Calculate average fare of each class
+average_fare = df.groupby("Pclass")["Fare"].mean()
+
+# Find class with highest average fare
+highest_class = average_fare.idxmax()
+
+print("Average Fare of Each Class:")
+print(average_fare)
+
+print("\nClass with Highest Average Fare:")
+print(highest_class)
+
+
+//Calculate the Correlation Between Fare and Survived Using Pandas
+import pandas as pd
+
+df = pd.read_csv("train.csv")
+
+# Calculate correlation
+correlation = df["Fare"].corr(df["Survived"])
+
+print("Correlation between Fare and Survived:")
+print(correlation)
+
+
+//Calculate Number of Passengers Traveling Alone or With Family
+import pandas as pd
+
+df = pd.read_csv("train.csv")
+
+# Calculate family size
+df["FamilySize"] = df["SibSp"] + df["Parch"] + 1
+
+# Passengers traveling alone
+alone = df[df["FamilySize"] == 1].shape[0]
+
+# Passengers traveling with family
+with_family = df[df["FamilySize"] > 1].shape[0]
+
+print("Passengers Traveling Alone:", alone)
+print("Passengers Traveling With Family:", with_family)
+
+
+//Compare Survival Rates of Passengers Traveling Alone, With Small Family and Large Family
+import pandas as pd
+
+df = pd.read_csv("train.csv")
+
+# Calculate family size
+df["FamilySize"] = df["SibSp"] + df["Parch"] + 1
+
+# Categorize passengers
+df["FamilyType"] = df["FamilySize"].apply(
+    lambda x: "Alone" if x == 1 else
+    "Small Family" if x <= 4 else "Large Family"
+)
+
+# Calculate survival rate
+survival_rate = df.groupby("FamilyType")["Survived"].mean() * 100
+
+print("Survival Rate:")
+print(survival_rate)
+
+
+///////////CASE STUDY: STUDENT ACADEMIC PERFORMANCE ANALYSIS
+
+//Import NumPy, Pandas, SciPy and Matplotlib. Read CSV file and display first five rows.
+import numpy as np
+import pandas as pd
+from scipy import stats
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("student_performance.csv")
+
+print(df.head())
+
+//Find rows, columns, column names, data types and missing values.
+print(df.shape)
+print(df.columns)
+print(df.dtypes)
+print(df.isna().sum())
+
+//Calculate mean, median, standard deviation, minimum and maximum using NumPy.
+for col in ["Study_Hours_Per_Day", "Exam_Score"]:
+    x = df[col].dropna().to_numpy()
+
+    print("\n", col)
+    print("Mean:", np.mean(x))
+    print("Median:", np.median(x))
+    print("Standard Deviation:", np.std(x, ddof=1))
+    print("Minimum:", np.min(x))
+    print("Maximum:", np.max(x))
+
+//Replace missing values with median and verify.
+for col in ["Attendance_Percent", "Assignment_Score"]:
+    df[col] = df[col].fillna(df[col].median())
+
+print(df.isna().sum())
+
+//Calculate average Exam_Score for each department.
+dept_average = df.groupby("Department")["Exam_Score"].mean()
+
+print(dept_average)
+print("Highest average:", dept_average.idxmax())
+
+//Create Performance_Level and count students.
+df["Performance_Level"] = np.select(
+    [
+        df["Exam_Score"] >= 75,
+        df["Exam_Score"] >= 50
+    ],
+    ["High", "Moderate"],
+    default="Needs Support"
+)
+
+print(df["Performance_Level"].value_counts())
+
+//Calculate Pearson correlation coefficient and p-value.
+r, p = stats.pearsonr(
+    df["Study_Hours_Per_Day"],
+    df["Exam_Score"]
+)
+
+print("Pearson Correlation:", r)
+print("P-value:", p)
+
+//Perform Welch's independent samples t-test.
+high_attendance = df.loc[
+    df["Attendance_Percent"] >= 80,
+    "Exam_Score"
+]
+
+low_attendance = df.loc[
+    df["Attendance_Percent"] < 80,
+    "Exam_Score"
+]
+
+t, p = stats.ttest_ind(
+    high_attendance,
+    low_attendance,
+    equal_var=False
+)
+
+print("T-statistic:", t)
+print("P-value:", p)
+
+print("High attendance mean:",
+      high_attendance.mean())
+
+print("Low attendance mean:",
+      low_attendance.mean())
+
+//Draw histogram and scatter plot.
+# Histogram
+plt.figure(figsize=(7, 4))
+
+plt.hist(df["Exam_Score"],
+         bins=10,
+         edgecolor="black")
+
+plt.title("Distribution of Examination Scores")
+plt.xlabel("Exam Score")
+plt.ylabel("Number of Students")
+plt.grid(axis="y", alpha=0.3)
+
+plt.show()
+
+# Scatter plot
+plt.figure(figsize=(7, 4))
+
+plt.scatter(
+    df["Study_Hours_Per_Day"],
+    df["Exam_Score"]
+)
+
+plt.title("Study Hours vs Exam Score")
+plt.xlabel("Study Hours Per Day")
+plt.ylabel("Exam Score")
+plt.grid(alpha=0.3)
+
+plt.show()
+
+//Draw bar chart showing average exam score by department.
+dept_average = df.groupby("Department")["Exam_Score"].mean()
+
+dept_average.plot(
+    kind="bar",
+    figsize=(7, 4),
+    edgecolor="black"
+)
+
+plt.title("Average Exam Score by Department")
+plt.xlabel("Department")
+plt.ylabel("Average Exam Score")
+plt.xticks(rotation=0)
+plt.grid(axis="y", alpha=0.3)
+
+plt.show()
+
+print("Best Department:", dept_average.idxmax())
